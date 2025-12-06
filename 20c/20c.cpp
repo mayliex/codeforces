@@ -16,6 +16,21 @@
 
 using namespace std;
 
+#ifndef ONLINE_JUDGE
+#define INPUT_OUTPUT()                  \
+    freopen("input.txt", "r", stdin);   \
+    freopen("output.txt", "w", stdout); 
+#else
+#define INPUT_OUTPUT()
+    do {                                \
+    } while (false);
+#endif
+
+#define FAST_EXECUTION
+#ifdef FAST_EXECUTION
+  #pragma GCC optimize("O3")
+#endif
+
 /* TYPES  */
 #define ll long long
 #define pii pair<int, int>
@@ -43,9 +58,8 @@ void print_v(vector<T> &v) { cout << "{"; for (auto x : v) cout << x << ","; cou
 /* UTILS */
 #define MOD 1000000007
 #define PI 3.1415926535897932384626433832795
-#define N 300000
+#define N (int) 1e9
 #define INF (ll) 4e18
-
 
 void solve() {
     int n, m;
@@ -103,8 +117,6 @@ void solve() {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-
-    solve();
+    INPUT_OUTPUT()
+    return 0;
 }
