@@ -1,6 +1,6 @@
-CXX      = @CXX@
-CXXFLAGS = @CXXFLAGS@
-problem  = @problem@
+CXX      = g++
+CXXFLAGS = -std=c++17
+problem  = 455a
 
 
 run: $(problem).cpp

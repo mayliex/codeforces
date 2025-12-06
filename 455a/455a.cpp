@@ -21,9 +21,8 @@ using namespace std;
     freopen("input.txt", "r", stdin);   \
     freopen("output.txt", "w", stdout); 
 #else
-#define INPUT_OUTPUT()
-    do {                                \
-    } while (false);
+#define INPUT_OUTPUT()                  \
+    while (false) {};
 #endif
 
 #define FAST_EXECUTION
@@ -62,8 +61,27 @@ void print_v(vector<T> &v) { cout << "{"; for (auto x : v) cout << x << ","; cou
 #define INF (ll) 4e18
 
 void solve() {
-    int n, m;
-    cin >> n >> m;
+    int n, max_num = 0;
+    cin >> n;
+
+    int j = 0;
+    
+    ll freq[(int) 10e5 + 1];
+    f(j, 0, n) {
+        int num;
+        cin >> num;
+        freq[num] += 1;
+        max_num = max(max_num, num);
+    }
+
+    ll dp[(int) 10e5 + 1];
+    dp[1] = freq[1];
+    dp[0] = 0;
+    f(j, 2, max_num+1) {
+        dp[j] = max(dp[j-2] + freq[j] * j, dp[j-1]);
+    }
+
+    cout << dp[max_num];
 }
 
 int main() {
