@@ -9,6 +9,7 @@ task:
 	cp template.cpp $(problem)/$(problem).cpp
 	touch $(problem)/input.txt
 	touch $(problem)/output.txt
+	touch $(problem)/.gitignore && echo "$(problem)" > $(problem)/.gitignore
 	@echo "Generating $(problem) Makefile from $(TEMPLATE)..."
 	sed \
 		-e 's/@CXX@/$(CXX)/g' \
