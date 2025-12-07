@@ -3,6 +3,7 @@ OUTPUT 		= Makefile
 CXX 		= g++
 CXXFLAGS 	= -std=c++17
 
+# Example: make task problem=580d 
 task:
 	@echo "Setting up $(problem)"
 	mkdir $(problem)
