@@ -26,7 +26,7 @@ using namespace std;
     while (false) {};
 #endif
 
-#define FAST_EXECUTION
+// #define FAST_EXECUTION
 #ifdef FAST_EXECUTION
   #pragma GCC optimize("O3")
 #endif
@@ -38,6 +38,7 @@ using namespace std;
 #define vi vector<int>
 #define vll vector<long long>
 #define mii map<int, int>
+#define umii unordered_map<int, int>
 #define si set<int>
 #define sc set<char>
 
@@ -64,6 +65,41 @@ void print_v(vector<T> &v) { cout << "{"; for (auto x : v) cout << x << ","; cou
 void solve() {
     int n, m;
     cin >> n >> m;
+    int cats[(int) 10e5+1], i;
+    f(i, 0, n) {
+        cin >> cats[i+1];
+    }
+
+    int a, b;
+    unordered_map<int, vi> edges;
+    f(i, 0, n-1) {
+        cin >> a >> b;
+        edges[a].pb(b);
+        edges[b].pb(a);
+    }
+
+    list<pii> v;
+    v.push_back(make_pair(cats[1],1));
+    bool visited[(int) 10e5 + 1] = {0};
+    visited[1] = true;
+    int result = 0;
+    while (v.size() != 0) {
+        auto [cats_tmp, vertex] = v.front(); v.pop_front();
+        if (cats_tmp > m) continue;
+        bool is_leaf = true;
+        for (auto vertex_next: edges[vertex]) {
+            if (visited[vertex_next]) continue;
+            visited[vertex_next] = true;
+            is_leaf = false;
+            int cats_next = cats_tmp > 0 && cats[vertex_next] == 1 ? cats_tmp + cats[vertex_next]: cats[vertex_next];
+            v.push_back(make_pair(cats_next, vertex_next));
+        }
+        if (is_leaf && vertex != 1) {
+            result += 1;
+        }
+    }
+
+    cout << result;
 }
 
 int main() {
