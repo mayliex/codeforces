@@ -38,6 +38,7 @@ using namespace std;
 #define vi vector<int>
 #define vll vector<long long>
 #define mii map<int, int>
+#define umii unordered_map<int, int>
 #define si set<int>
 #define sc set<char>
 
@@ -58,7 +59,7 @@ void print_v(vector<T> &v) { cout << "{"; for (auto x : v) cout << x << ","; cou
 /* UTILS */
 #define MOD 1000000007
 #define PI 3.1415926535897932384626433832795
-#define N (int) 1e9
+#define N (int) 1e6
 #define INF (ll) 4e18
 
 void solve() {
