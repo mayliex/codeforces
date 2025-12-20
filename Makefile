@@ -1,7 +1,7 @@
-TEMPLATE 	= Makefile.template
-OUTPUT 		= Makefile
-CXX 		= g++
-CXXFLAGS 	= -std=c++17
+TEMPLATE 	 = Makefile.template
+OUTPUT 		 = Makefile
+CXX 		 = g++
+CXXFLAGS 	 = -std=c++17 -g
 
 run: main.cpp
 	$(CXX) $(CFLAGS) -o main main.cpp
@@ -16,3 +16,8 @@ solution:
 	rm -rf output.txt
 	touch input.txt
 	touch output.txt
+
+debug:
+	clang++ -g -o main main.cpp
+	lldb main
+
