@@ -4,7 +4,7 @@ CXX 		 = g++
 CXXFLAGS 	 = -std=c++17 -g
 
 run: main.cpp
-	$(CXX) $(CFLAGS) -o main main.cpp
+	$(CXX) $(CXXFLAGS) -o main main.cpp
 	./main
 	cat output.txt
 
@@ -18,6 +18,6 @@ solution:
 	touch output.txt
 
 debug:
-	clang++ -g -o main main.cpp
+	clang++ $(CXXFLAGS) -o main main.cpp
 	lldb main
 
