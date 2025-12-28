@@ -54,7 +54,10 @@ using namespace std;
 
 /* PRINTS */
 template <class T>
-void print_v(vector<T> &v) { cout << "{"; for (auto x : v) cout << x << ","; cout << "\b}"; }
+void print_v(vector<T> &v) { cout << "{"; for (auto x : v) cout << x << ","; cout << "\b}\n"; }
+
+template <class T>
+void print_a(T &v, int n) { cout << "{"; for (int i=0; i<n; i++) cout << v[i] << ","; cout << "\b}\n"; }
 
 /* UTILS */
 #define MOD 1000000007
